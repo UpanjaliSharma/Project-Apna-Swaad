@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { BASE_URL } from '../constants/constant'
 
 export default function AddFoodRecipe() {
     const [recipeData, setRecipeData] = useState({})
@@ -28,7 +29,7 @@ export default function AddFoodRecipe() {
         }
     
         try {
-            await axios.post("http://localhost:5000/recipe", formData, {
+            await axios.post(`${BASE_URL}/recipe`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     "authorization": "bearer " + localStorage.getItem("token"),
